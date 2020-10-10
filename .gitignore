@@ -38,6 +38,7 @@ bower_components
 build/Release
 
 # Dependency directories
+/node_modules
 node_modules/
 jspm_packages/
 
@@ -69,6 +70,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
+/.env
 .env
 .env.test
 
