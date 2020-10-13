@@ -59,7 +59,7 @@ exports.signin = (req, res, next) => {
       //create token
       const token = jwt.sign({ _id: user._id }, process.env.SECRET);
       //put token in cookie
-      res.cookie("token", token, { expire: new Date() + 9999 });
+      res.cookie("token", token, { expire: new Date() + 3600 * 60 * 60 });
   
       //send response to front end
       const { _id, name, email, role } = user;
@@ -69,7 +69,7 @@ exports.signin = (req, res, next) => {
 
 // Sign Out
 exports.signout = (req, res, next) => {
-  res.clearCookies('token');
+  res.clearCookie('token');
   res.json({ message: 'User sign out successful'});
 }
 
