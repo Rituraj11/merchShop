@@ -17,16 +17,26 @@ const Menu = ({history}) => (
             <li className="nav-item">
                 <Link style={currentTab(history,'/')} className="nav-link" to="/" >Home</Link>
             </li>
-            <li className="nav-item">
-                <Link style={currentTab(history,'/user/dashboard')} className="nav-link" to="/user/dasboard" >Dashboard</Link>
-            </li>
-            <li className="nav-item">
-                <Link style={currentTab(history,'/admin/dashboard')} className="nav-link" to="/admin/dashboard" >A. Dashboard</Link>
-            </li>
+
+            {/* User dashboard check */}
+            { isAuthenticated() && isAuthenticated().user.role === 0 && (
+                <li className="nav-item">
+                <Link style={currentTab(history,'/user/dashboard')} className="nav-link" to="/user/dashboard" >Dashboard</Link>
+                </li>
+            ) }
+            
+            {/* Admin dashboard check */}
+            { isAuthenticated() && isAuthenticated().user.role === 1 && (
+                <li className="nav-item">
+                <Link style={currentTab(history,'/admin/dashboard')} className="nav-link" to="/admin/dashboard" >Dashboard</Link>
+                </li>
+            )}
+            
             <li className="nav-item">
                 <Link style={currentTab(history,'/cart')} className="nav-link" to="/cart" >Cart</Link>
             </li>
             
+            {/* Authentication check */}
             { !isAuthenticated() && (
                 <React.Fragment>
                     <li className="nav-item">
@@ -37,6 +47,8 @@ const Menu = ({history}) => (
                 </li>
                 </React.Fragment>
             )}
+
+            {/* Sign out process */}
             { isAuthenticated() && (
                 <li className="nav-item">
                     <span className="nav-link text-warning" 

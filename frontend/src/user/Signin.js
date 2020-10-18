@@ -42,9 +42,9 @@ const Signin = () => {
     const performRedirect = () => {
         if(didRedirect){
             if(user && user.role === 1){
-                return <p>redirect to Admin dashboard</p>
+                return <Redirect to="/admin/dashboard" />
             }else{
-                return <p>redirect to User dashboard</p>
+                return <Redirect to="/user/dashboard" />
             }
         }
         if(isAuthenticated()){
@@ -55,8 +55,10 @@ const Signin = () => {
     const loadingMessage = () => {
         return (
             loading && (
-                <div className="alert alert-info">
-                    <h2>Loading...</h2>
+                <div className="d-flex justify-content-center">
+                <div className="spinner-border"  role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
                 </div>
             )
         );
