@@ -20,11 +20,20 @@ code {
     monospace;
 }
 
-.footer{
-  position: absolute;
+/* .footer{
+  position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
+} */
+
+.btn-group-lg>.btn, .btn-lg {
+  padding: .5rem 1rem;
+  padding-top: 0.1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 1rem;
+  border-radius: .5rem;
 }
 
 @media (min-width: 576px){

@@ -159,6 +159,7 @@ exports.getAllUniqueCategories = (req, res) => {
 };
 
 
+
 exports.updateStock = (req, res, next) => {
 
     let myOperations = req.body.order.products.map( products => {
