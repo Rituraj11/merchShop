@@ -1,2 +1,2 @@
 # merchShop
-A private merchandise shop project.
+A private merchandise shop MERN project.
